@@ -2,9 +2,10 @@
 from django.urls import path, include
 
 # from shop import market
-from .views import index
+from .views import index, about_us
 
 
 urlpatterns = [
-    path('', index, name='index')
+    path('', index, name='index'),
+    path('aboutus', about_us, name='aboutus')
 ]

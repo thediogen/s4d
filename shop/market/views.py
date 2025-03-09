@@ -4,4 +4,17 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'index.html')
+
+    context = {
+        'title': 'GoIteens Shop'
+    }
+
+    return render(request, 'index.html', context=context)
+
+
+def about_us(request):
+    context = {
+        'title': 'About Us'
+    }
+
+    return render(request, 'aboutUs.html', context=context)

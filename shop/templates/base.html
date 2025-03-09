@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} GoIteens {% endblock title %}</title>
+
+    {% block static_files %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+  
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}" target="_blank" title="Main" >Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
