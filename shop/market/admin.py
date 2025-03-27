@@ -6,7 +6,6 @@ from django.contrib import admin
 from .models import Person, Musician, Album
 
 
-
 @admin.register(Person, Musician, Album)
 class Market(admin.ModelAdmin):
     ...
