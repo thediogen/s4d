@@ -2,11 +2,11 @@
 from django.urls import path, include
 
 # from shop import market
-from .views import index, about_us, register
+from .views import index, about_us
 
 
 urlpatterns = [
     path('', index, name='index'),
     path('aboutus', about_us, name='aboutus'),
-    path('register', register, name='register')
+    # path('register', register, name='register')
 ]
