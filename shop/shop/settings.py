@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'market',
     'forms',
     'authenticate',
+    'models_and_migrations'
 ]
 
 MIDDLEWARE = [
