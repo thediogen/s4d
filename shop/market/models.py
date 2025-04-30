@@ -31,3 +31,21 @@ class Cart(models.Model):
     total_price = models.IntegerField()
     created_at = models.DateTimeField()
     status = models.CharField(choices=CartStatus.choices(), max_length=len(CartStatus.waiting_for_accept.value))
+
+
+class Stuff(models.Model):
+    name = models.CharField(max_length=30)
+    desc = models.CharField(max_length=257)
+    photo = models.CharField(max_length=100)
+    price = models.IntegerField()
+
+
+class ShoppingCart(models.Model):
+    created_at = models.DateField(auto_now_add=True)
+    items = models.ManyToManyField(Stuff)
+
+
+class Cart(models.Model):
+    shopping_cart = models.ForeignKey(ShoppingCart, on_delete=models.CASCADE, default=None, null=True)
+    stuff = models.ForeignKey(Stuff, on_delete=models.CASCADE, default=None, null=True)
+    quantity = models.IntegerField(default=1)

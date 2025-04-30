@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'market',
     'forms',
     'authenticate',
-    'models_and_migrations'
 ]
 
 MIDDLEWARE = [
@@ -66,6 +65,7 @@ TEMPLATES = [
         'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
+            'builtins': ['market.templatetags.my_filters'],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
