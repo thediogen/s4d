@@ -38,6 +38,7 @@ class Stuff(models.Model):
     desc = models.CharField(max_length=257)
     photo = models.CharField(max_length=100)
     price = models.IntegerField()
+    is_available = models.BooleanField(default=False)
 
 
 class ShoppingCart(models.Model):

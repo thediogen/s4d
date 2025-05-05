@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import (index, get_person_by_pk, get_person_by_surname, change_surname, get_or_create_person,
                     update_or_create_person, create_person, delete_person, get_all_persons, request_info_check,
-                    tutorial, about_us)
+                    tutorial, about_us, About, get_all_stuff_2)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -17,5 +17,6 @@ urlpatterns = [
     path('check', request_info_check, name='check'),
     # path('v2', ),
     path('reverse', tutorial),
-    path('aboutus', about_us)
+    path('aboutus', About.as_view(), name='about'),
+    path("products", get_all_stuff_2)
 ]

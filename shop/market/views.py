@@ -7,7 +7,9 @@ from django.views.decorators.http import require_http_methods
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.generic import TemplateView
 
-from .models import Person
+from django.core.paginator import Paginator
+
+from .models import Person, Stuff
 
 def index(request):
 
@@ -157,7 +159,30 @@ def tutorial(request):
 
 
 class About(TemplateView):
-    template_name = 'about.html'
+    template_name = 'aboutUs.html'
+
+def get_all_stuff(request):
+    context = {
+        'all_stuff': Stuff.objects.all(),
+    }
+
+    return render(request, "products.html", context)
+
+
+def get_all_stuff_2(request):
+    all_products = Stuff.objects.all()
+    paginator = Paginator(all_products, 2)
+
+    if 'page' in request.GET:
+        page_num = request.GET['page']
+    else:
+        page_num = 1
+
+    page = paginator.get_page(page_num)
+
+    context = {'page': page, 'products': page.object_list}
+
+    return render(request, "products.html", context)
 
 
 # def register(request):
